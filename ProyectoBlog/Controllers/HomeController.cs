@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoBlog.Models;
+using ProyectoBlog.Rules;
 using System.Diagnostics;
 
 namespace ProyectoBlog.Controllers
@@ -18,7 +19,17 @@ namespace ProyectoBlog.Controllers
 			return View();
 		}
 
-		public IActionResult Privacy()
+		public IActionResult Suerte()
+		{
+			var postRule= new PublicacionRule();
+			var post = postRule.GetOnePostRandom();
+			return View(post);
+		}
+		public IActionResult AcercaDe()
+		{
+			return View();
+		}
+		public IActionResult Contacto()
 		{
 			return View();
 		}
